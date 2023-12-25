@@ -13,3 +13,5 @@ html.dark {
 .borderBlack {
   @apply border border-black/10;
 }
+
+#tidio-chat-iframe { bottom: 65px !important; }

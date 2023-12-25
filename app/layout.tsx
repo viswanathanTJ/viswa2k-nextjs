@@ -38,6 +38,7 @@ export default function RootLayout({
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>
+      <script async src="//code.tidio.co/ytyedcgnlikxcich6p1ypzpretyfymzr.js" />
     </html>
   );
 }
