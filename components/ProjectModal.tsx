@@ -1,0 +1,84 @@
+import { motion } from "framer-motion";
+import { IoMdClose } from "react-icons/io";
+import { projectsData } from "@/lib/data";
+import { useEffect } from "react";
+
+interface ProjectModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  modalSrc: string;
+  modalPoints: readonly string[];
+  modalTitle: string;
+  children: React.ReactNode;
+}
+
+export default function ProjectModal({
+  isOpen,
+  onClose,
+  modalSrc,
+  modalPoints,
+  modalTitle,
+}: ProjectModalProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.95 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.95 }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-3xl rounded-lg bg-white/95 p-8 shadow-xl ring-1 ring-gray-200 dark:bg-gray-900/95 dark:ring-gray-800"
+      >
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 rounded-full p-1 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+        >
+          <IoMdClose size={24} />
+        </button>
+        <h2 className="mb-6 text-3xl font-bold tracking-tight">{modalTitle}</h2>
+        {modalSrc.match(/\.(mp4|webm|ogg)$/i) ? (
+          <video
+            src={modalSrc}
+            controls
+            className="mb-4 w-[530px] h-[300px] rounded-lg object-cover mx-auto"
+          />
+        ) : (
+          <img
+            src={modalSrc}
+            alt={modalTitle}
+            className="mb-4 w-full max-h-[500px] rounded-lg object-contain sm:object-cover"
+          />
+        )}
+        {modalPoints && modalPoints.length > 0 && (
+          <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+              {modalPoints.map((point, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-500"></span>
+                    {point}
+                  </li>
+              ))}
+          </ul>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+}
