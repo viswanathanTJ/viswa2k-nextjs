@@ -14,4 +14,12 @@ html.dark {
   @apply border border-black/10;
 }
 
-#tidio-chat-iframe { bottom: 65px !important; }
+#tidio-chat-iframe {
+  bottom: 65px !important;
+}
+
+@media (min-width: 640px) {
+  .mt-40per {
+    margin-top: 40% !important;
+  }
+}

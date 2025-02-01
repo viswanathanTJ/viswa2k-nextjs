@@ -35,10 +35,10 @@ export default function ProjectModal({
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      className="fixed inset-0 z-[999] flex items-start justify-center bg-black/70 px-4 pt-28 pb-4 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       <motion.div
@@ -46,11 +46,11 @@ export default function ProjectModal({
         animate={{ scale: 1 }}
         exit={{ scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-3xl rounded-lg bg-white/95 p-8 shadow-xl ring-1 ring-gray-200 dark:bg-gray-900/95 dark:ring-gray-800"
+        className="relative w-full max-w-3xl rounded-lg bg-white/95 p-6 sm:p-8 shadow-xl ring-1 ring-gray-200 dark:bg-gray-900/95 dark:ring-gray-800 my-8"
       >
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-1 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+          className="fixed right-6 top-32 rounded-full p-2 bg-white/95 dark:bg-gray-900/95 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200 shadow-lg"
         >
           <IoMdClose size={24} />
         </button>
@@ -59,13 +59,13 @@ export default function ProjectModal({
           <video
             src={modalSrc}
             controls
-            className="mb-4 w-[530px] h-[300px] rounded-lg object-cover mx-auto"
+            className="mb-4 w-full max-w-[530px] h-auto rounded-lg object-cover mx-auto"
           />
         ) : (
           <img
             src={modalSrc}
             alt={modalTitle}
-            className="mb-4 w-full max-h-[500px] rounded-lg object-contain sm:object-cover"
+            className="mb-4 w-full h-auto max-h-[500px] rounded-lg object-contain"
           />
         )}
         {modalPoints && modalPoints.length > 0 && (
