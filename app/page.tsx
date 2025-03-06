@@ -13,6 +13,7 @@ export default function Home() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileVideoId, setMobileVideoId] = useState<string | null>(null);
+  const [bgImageLoaded, setBgImageLoaded] = useState(false);
 
   // Check if device is mobile on component mount
   useEffect(() => {
@@ -36,16 +37,31 @@ export default function Home() {
       <section className="relative">
         <div className="relative h-[500px] w-full rounded-xl overflow-hidden">
           <Image
-            src="/placeholder.svg?height=500&width=1200"
+            src="/landing-bg.png?height=500&width=1200"
             alt="Spiritual Guidance"
             fill
             className="object-cover"
             priority
+            onLoad={() => setBgImageLoaded(true)}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex flex-col justify-center p-8 md:p-16">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Agathiyar Janachithar</h1>
-            <p className="text-xl text-white/90 max-w-md mb-8">
-              Discover spiritual guidance and astrological insights to transform your life
+          {/* Standing Image with Animation */}
+          <div className={`absolute bottom-0 right-0 transition-all duration-1000 ease-in-out hidden md:block ${bgImageLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <Image
+              // src="/ajs-400.png"
+              src="/ajs-standing.png"
+              alt="Agathiyar Jana Chithar"
+              width={400}
+              height={400}
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r to-transparent flex flex-col justify-center p-8 md:p-16">
+            <h1 className="text-3xl md:text-5xl font-bold text-primary mb-4">Agathiyar Jana Chithar</h1>
+            <p className="text-xl text-black/90 max-w-md mb-8">
+              Discover spiritual guidance and astrological insights to transform your life.
+              Discover spiritual guidance and astrological insights to transform your life.
+              Discover spiritual guidance and astrological insights to transform your life.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" asChild>
