@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { CalendarDays, CheckCircle, Clock, IndianRupee, MapPin, Share2, Star } from "lucide-react"
 import { notFound } from "next/navigation"
+import BookingForm from "@/components/booking-form"
 
 interface GigPageProps {
   params: {
@@ -213,55 +214,7 @@ export default function GigPage({ params }: GigPageProps) {
               <CardDescription>Book your session today</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid gap-2">
-                <label htmlFor="date" className="text-sm font-medium">
-                  Select Date
-                </label>
-                <input type="date" id="date" className="w-full p-2 border rounded-md" />
-              </div>
-              <div className="grid gap-2">
-                <label htmlFor="time" className="text-sm font-medium">
-                  Select Time
-                </label>
-                <select id="time" className="w-full p-2 border rounded-md">
-                  <option value="">Select a time slot</option>
-                  <option value="9:00">9:00 AM</option>
-                  <option value="10:00">10:00 AM</option>
-                  <option value="11:00">11:00 AM</option>
-                  <option value="12:00">12:00 PM</option>
-                  <option value="14:00">2:00 PM</option>
-                  <option value="15:00">3:00 PM</option>
-                  <option value="16:00">4:00 PM</option>
-                </select>
-              </div>
-              <div className="grid gap-2">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Your Name
-                </label>
-                <input type="text" id="name" className="w-full p-2 border rounded-md" />
-              </div>
-              <div className="grid gap-2">
-                <label htmlFor="phone" className="text-sm font-medium">
-                  Phone Number
-                </label>
-                <input type="tel" id="phone" className="w-full p-2 border rounded-md" />
-              </div>
-              <div className="grid gap-2">
-                <label htmlFor="email" className="text-sm font-medium">
-                  Email
-                </label>
-                <input type="email" id="email" className="w-full p-2 border rounded-md" />
-              </div>
-              <div className="grid gap-2">
-                <label htmlFor="notes" className="text-sm font-medium">
-                  Special Requests (Optional)
-                </label>
-                <textarea id="notes" rows={3} className="w-full p-2 border rounded-md"></textarea>
-              </div>
-              <Button className="w-full">Book Now</Button>
-              <p className="text-xs text-center text-muted-foreground">
-                By booking, you agree to our terms and conditions
-              </p>
+              <BookingForm />
             </CardContent>
           </Card>
         </div>

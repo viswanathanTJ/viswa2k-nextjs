@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { CalendarDays, Clock, MapPin, Phone, Star } from "lucide-react"
+import ContactForm from "@/components/contact-form"
 
 export default function Home() {
   return (
@@ -112,37 +113,7 @@ export default function Home() {
               <CardDescription>Fill out the form and we'll get back to you soon</CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="grid gap-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Name
-                    </label>
-                    <input id="name" className="w-full p-2 border rounded-md" />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
-                      Email
-                    </label>
-                    <input id="email" type="email" className="w-full p-2 border rounded-md" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">
-                    Subject
-                  </label>
-                  <input id="subject" className="w-full p-2 border rounded-md" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <textarea id="message" rows={4} className="w-full p-2 border rounded-md"></textarea>
-                </div>
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
+              <ContactForm />
             </CardContent>
           </Card>
 
