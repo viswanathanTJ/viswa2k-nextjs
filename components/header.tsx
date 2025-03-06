@@ -18,6 +18,9 @@ export default function Header() {
     const checkActiveSection = () => {
       const sections = document.querySelectorAll("section[id]")
       let currentActiveHash = window.location.hash
+      
+      // Get the actual navbar height
+      const navbarHeight = document.querySelector("header")?.offsetHeight || 64;
 
       // If no hash in URL, determine which section is in view
       if (!currentActiveHash) {
@@ -26,8 +29,8 @@ export default function Header() {
           const sectionTop = section.getBoundingClientRect().top
           const sectionId = section.getAttribute("id")
 
-          // If section is in viewport and closer to top than current section
-          if (sectionTop <= 100 && sectionId) {
+          // Use navbar height instead of fixed 100px value
+          if (sectionTop <= navbarHeight + 200 && sectionId) {
             currentSection = `#${sectionId}`
           }
         })
@@ -54,6 +57,8 @@ export default function Header() {
       window.removeEventListener("hashchange", handleHashChange)
     }
   }, [])
+  
+  // ...rest of the code remains unchanged
 
   // Function to check if the current path/hash matches the nav item
   const isActive = (href: string) => {
@@ -145,12 +150,12 @@ const navItems = [
     href: "/",
   },
   {
-    label: "Services",
-    href: "#services",
-  },
-  {
     label: "About",
     href: "#about",
+  },
+  {
+    label: "Services",
+    href: "#services",
   },
   {
     label: "Testimonials",
