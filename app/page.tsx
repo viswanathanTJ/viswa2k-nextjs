@@ -35,7 +35,7 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16">
+      <section id="about" className="py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Our Spiritual Services</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -65,7 +65,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-muted rounded-xl p-8">
+      <section id="testimonials" className="py-16 bg-muted rounded-xl p-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">What Our Clients Say</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
