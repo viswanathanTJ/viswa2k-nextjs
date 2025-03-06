@@ -17,9 +17,11 @@ function SubmitButton() {
     </Button>
   )
 }
-
 export default function BookingForm() {
-  const [state, formAction] = useFormState(bookAppointment, initialState)
+  const [state, formAction] = useFormState(
+    (prevState: typeof initialState, formData: FormData) => bookAppointment(formData),
+    initialState
+  )
 
   return (
     <div>

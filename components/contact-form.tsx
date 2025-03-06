@@ -17,9 +17,11 @@ function SubmitButton() {
     </Button>
   )
 }
-
 export default function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, initialState)
+  const [state, formAction] = useFormState(
+    (prevState: typeof initialState, formData: FormData) => submitContactForm(formData),
+    initialState
+  )
 
   return (
     <div>
