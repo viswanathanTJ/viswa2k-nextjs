@@ -4,71 +4,10 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, Phone } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useState, useEffect } from "react"
-import { usePathname } from "next/navigation"
+import { useState } from "react"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
-  const [activeHash, setActiveHash] = useState("")
-
-  // Listen for hash changes and scroll events
-  useEffect(() => {
-    // Function to check which section is currently in view
-    const checkActiveSection = () => {
-      const sections = document.querySelectorAll("section[id]")
-      let currentActiveHash = window.location.hash
-
-      // If no hash in URL, determine which section is in view
-      if (!currentActiveHash) {
-        let currentSection = ""
-        sections.forEach((section) => {
-          const sectionTop = section.getBoundingClientRect().top
-          const sectionId = section.getAttribute("id")
-
-          // If section is in viewport and closer to top than current section
-          if (sectionTop <= 100 && sectionId) {
-            currentSection = `#${sectionId}`
-          }
-        })
-        currentActiveHash = currentSection
-      }
-
-      setActiveHash(currentActiveHash)
-    }
-
-    // Initial check
-    checkActiveSection()
-
-    // Check on scroll
-    window.addEventListener("scroll", checkActiveSection)
-
-    // Check on hash change
-    const handleHashChange = () => {
-      setActiveHash(window.location.hash)
-    }
-    window.addEventListener("hashchange", handleHashChange)
-
-    return () => {
-      window.removeEventListener("scroll", checkActiveSection)
-      window.removeEventListener("hashchange", handleHashChange)
-    }
-  }, [])
-
-  // Function to check if the current path/hash matches the nav item
-  const isActive = (href: string) => {
-    // For full page routes (like "/gigs")
-    if (!href.startsWith("#")) {
-      if (href === "/") {
-        return pathname === href && !activeHash
-      }
-      return pathname.startsWith(href)
-    }
-    // For hash links (like "#contact")
-    else {
-      return activeHash === href
-    }
-  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -92,13 +31,10 @@ export default function Header() {
                   <Link
                     key={index}
                     href={item.href}
-                    className={`px-7 py-2 text-lg transition-colors relative ${
-                      isActive(item.href) ? "text-primary font-medium" : "hover:bg-muted"
-                    }`}
+                    className="px-7 py-2 text-lg hover:bg-muted transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
-                    {isActive(item.href) && <span className="absolute left-0 top-0 h-full w-1 bg-primary" />}
                   </Link>
                 ))}
               </nav>
@@ -109,19 +45,10 @@ export default function Header() {
             <span className="hidden sm:inline">Janachithar</span>
           </Link>
         </div>
-        <nav className="hidden md:flex items-center gap-6 relative">
+        <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item, index) => (
-            <Link
-              key={index}
-              href={item.href}
-              className={`text-sm font-medium transition-colors relative py-1 ${
-                isActive(item.href) ? "text-primary" : "hover:text-primary"
-              }`}
-            >
+            <Link key={index} href={item.href} className="text-sm font-medium transition-colors hover:text-primary">
               {item.label}
-              {isActive(item.href) && (
-                <span className="absolute bottom-0 left-0 h-0.5 w-full bg-primary animate-[slideIn_0.2s_ease-in-out]" />
-              )}
             </Link>
           ))}
         </nav>
@@ -150,11 +77,11 @@ const navItems = [
   },
   {
     label: "About",
-    href: "#about",
+    href: "#",
   },
   {
     label: "Testimonials",
-    href: "#testimonials",
+    href: "#",
   },
   {
     label: "Contact",
