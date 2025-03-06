@@ -146,7 +146,7 @@ const navItems = [
   },
   {
     label: "Services",
-    href: "/gigs",
+    href: "#services",
   },
   {
     label: "About",

@@ -1,11 +1,35 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { CalendarDays, Clock, MapPin, Phone, Star } from "lucide-react"
+import { CalendarDays, Clock, MapPin, Phone, Play, Star } from "lucide-react";
 import ContactForm from "@/components/contact-form"
 
+
 export default function Home() {
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileVideoId, setMobileVideoId] = useState<string | null>(null);
+
+  // Check if device is mobile on component mount
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
@@ -35,8 +59,106 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TV Programs Section */}
+      <section id="about" className="py-16 rounded-xl p-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">TV Programs</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Featured in dedicated episodes across several prominent TV networks.
+          </p>
+        </div>
+
+        {/* Active video player - only show on desktop */}
+        {activeVideoId && !isMobile && (
+          <div id="video-player" className="aspect-video rounded-lg overflow-hidden max-w-4xl mx-auto mb-8">
+            <iframe
+              src={videos.find(video => video.id === activeVideoId)?.url}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allow="autoplay; fullscreen; picture-in-picture; accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"
+              allowFullScreen
+              title={videos.find(video => video.id === activeVideoId)?.title}
+              referrerPolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        )}
+        
+        {/* Video thumbnails */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+          {videos.map((video) => (
+            <div 
+              key={video.id} 
+              className={`aspect-video rounded-lg overflow-hidden cursor-pointer relative ${
+                (activeVideoId === video.id && !isMobile) || (mobileVideoId === video.id && isMobile) 
+                  ? "ring-2 ring-primary" 
+                  : ""
+              }`}
+              onClick={() => {
+                if (isMobile) {
+                  // On mobile, toggle this video's inline player
+                  setMobileVideoId(mobileVideoId === video.id ? null : video.id);
+                } else {
+                  // On desktop, use the single player approach
+                  setActiveVideoId(video.id);
+                  setTimeout(() => {
+                    document.getElementById('about')?.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }, 100);
+                }
+              }}
+            >
+            {/* If on mobile and this video is selected, show iframe directly */}
+            {isMobile && mobileVideoId === video.id ? (
+              video.platform === "youtube" ? (
+                // YouTube-specific iframe
+                <iframe
+                  src={video.url}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allow="autoplay; fullscreen; picture-in-picture; accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"
+                  allowFullScreen
+                  title={video.title}
+                  referrerPolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              ) : (
+                // Vimeo-specific iframe
+                <iframe
+                  src={video.url}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  title={video.title}
+                  referrerPolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              )
+            ) : (
+              <>
+                <Image
+                  src={video.thumbnailUrl}
+                  alt={video.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-colors">
+                  <Play className="h-12 w-12 text-white" />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-2 text-white text-sm">
+                  {video.title}
+                </div>
+              </>
+            )}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Services Overview */}
-      <section id="about" className="py-16">
+      <section id="services" className="py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Our Spiritual Services</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -179,24 +301,6 @@ const services = [
     description: "Harmonize your living and working spaces with ancient Vastu principles",
     image: "/placeholder.svg?height=200&width=400",
   },
-  {
-    id: "numerology",
-    title: "Numerology",
-    description: "Understand the influence of numbers in your life and personality",
-    image: "/placeholder.svg?height=200&width=400",
-  },
-  {
-    id: "meditation",
-    title: "Meditation Classes",
-    description: "Learn meditation techniques to achieve inner peace and spiritual growth",
-    image: "/placeholder.svg?height=200&width=400",
-  },
-  {
-    id: "rituals",
-    title: "Spiritual Rituals",
-    description: "Traditional rituals to remove obstacles and invite positive energies",
-    image: "/placeholder.svg?height=200&width=400",
-  },
 ]
 
 const testimonials = [
@@ -223,3 +327,34 @@ const testimonials = [
   },
 ]
 
+// Vendhar TV url: "https://www.youtube.com/embed/dQi_zQ52tpI?si=9cZQ9U9IVUGcs-Gv",
+const videos = [
+  {
+    id: "vendhar_tv",
+    title: "Venthar TV - Moondaravathu Kan",
+    url: "https://www.youtube.com/embed/videoseries?list=PLI1eLWqTtWrvh_ZrOmRJCjyBFapSEqIqt",
+    platform: "youtube",
+    thumbnailUrl: "https://img.youtube.com/vi/dQi_zQ52tpI/maxresdefault.jpg",
+  },
+  {
+    id: "makkal_tv",
+    title: "Makkal TV - Maya Ulagam",
+    url: "https://www.youtube.com/embed/5JriwiFn10I?si=sX76NNjDssci522b",
+    platform: "youtube",
+    thumbnailUrl: "https://img.youtube.com/vi/5JriwiFn10I/maxresdefault.jpg",
+  },
+  {
+    id: "zee_tamil_tv",
+    title: "Zee Tamil - Nambinal Nambungal",
+    url: "//player.vimeo.com/video/784322358",
+    platform: "vimeo",
+    thumbnailUrl: "https://vumbnail.com/784322358.jpg",
+  },
+  {
+    id: "vasanth_tv",
+    title: "Vasanth TV - Mannil Ulavum Marmangal",
+    url: "//player.vimeo.com/video/893082114",
+    platform: "vimeo",
+    thumbnailUrl: "https://vumbnail.com/893082114.jpg",
+  },
+]
