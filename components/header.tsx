@@ -89,7 +89,7 @@ export default function Header() {
             <SheetContent side="left" className="pr-0">
               <div className="px-7">
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl" onClick={() => setIsOpen(false)}>
-                  <span className="text-primary">Agathiyar</span> Janachithar
+                  <span className="text-primary">அகத்தியர்</span> ஜெனா சித்தர் 
                 </Link>
               </div>
               <nav className="flex flex-col gap-4 mt-8">
@@ -110,8 +110,8 @@ export default function Header() {
             </SheetContent>
           </Sheet>
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <span className="text-primary">Agathiyar</span>
-            <span className="hidden sm:inline">Janachithar</span>
+            <span className="text-primary">அகத்தியர்</span>
+            <span className="hidden sm:inline">ஜெனா சித்தர்</span>
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6 relative">
@@ -131,12 +131,12 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="hidden sm:flex">
-            <Phone className="h-5 w-5" />
-            <span className="sr-only">Contact</span>
-          </Button>
+          {/* <Button variant="ghost" size="icon" className="hidden sm:flex"> */}
+            {/* <Phone className="h-5 w-5" /> */}
+            {/* <span className="sr-only">Contact</span> */}
+          {/* </Button> */}
           <Button asChild>
-            <Link href="#contact">Book Consultation</Link>
+            <Link href="#contact">தொடர்பு கொள்ள</Link>
           </Button>
         </div>
       </div>
@@ -146,24 +146,24 @@ export default function Header() {
 
 const navItems = [
   {
-    label: "Home",
+    label: "முகப்பு",
     href: "/",
   },
   {
-    label: "About",
+    label: "எங்களை பற்றி",
     href: "#about",
   },
   {
-    label: "Services",
+    label: "சேவைகள்",
     href: "#services",
   },
   {
-    label: "Testimonials",
+    label: "விமர்சனம்",
     href: "#testimonials",
   },
   {
-    label: "Contact",
+    label: "தொடர்பு கொள்ள",
     href: "#contact",
   },
-]
+];
 

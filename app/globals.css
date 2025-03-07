@@ -58,3 +58,21 @@
   }
 }
 
+/* Add these Tamil font classes to your existing CSS file */
+
+.tamil-heading {
+  font-family: var(--font-hind-madurai);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.tamil-subheading {
+  font-family: var(--font-catamaran);
+  font-weight: 600;
+}
+
+.tamil-text {
+  font-family: var(--font-noto-tamil);
+  line-height: 1.7;
+}
+
