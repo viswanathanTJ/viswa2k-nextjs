@@ -7,6 +7,7 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
       </body>
       <script async src="//code.tidio.co/ytyedcgnlikxcich6p1ypzpretyfymzr.js" />
       <Analytics />
+      <GoogleAnalytics gaId="G-PS97VPVF1H" />
     </html>
   );
 }
