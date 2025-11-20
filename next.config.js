@@ -7,9 +7,12 @@ const nextConfig = {
         hostname: "avatars.githubusercontent.com",
       },
     ],
+    qualities: [75, 95],
   },
   experimental: {
-    serverActions: true,
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
 };
 
