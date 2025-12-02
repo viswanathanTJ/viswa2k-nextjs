@@ -7,9 +7,10 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
+const GA_TRACKING_ID = "G-PS97VPVF1H";
 
 export const metadata = {
   title: "viswa2k | Personal Portfolio",
@@ -42,7 +43,18 @@ export default function RootLayout({
       </body>
       <script async src="//code.tidio.co/ytyedcgnlikxcich6p1ypzpretyfymzr.js" />
       <Analytics />
-      <GoogleAnalytics gaId="G-PS97VPVF1H" />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_TRACKING_ID}');
+        `}
+      </Script>
     </html>
   );
 }
