@@ -9,7 +9,6 @@ interface ProjectModalProps {
   modalSrc: string;
   modalPoints: readonly string[];
   modalTitle: string;
-  children: React.ReactNode;
 }
 
 export default function ProjectModal({
@@ -25,11 +24,21 @@ export default function ProjectModal({
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+    }
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -50,6 +59,7 @@ export default function ProjectModal({
       >
         <button
           onClick={onClose}
+          aria-label="Close modal"
           className="fixed right-6 top-32 rounded-full p-2 bg-white/95 dark:bg-gray-900/95 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200 shadow-lg"
         >
           <IoMdClose size={24} />

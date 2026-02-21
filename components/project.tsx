@@ -9,14 +9,13 @@ import ProjectModal from "./ProjectModal";
 type ProjectProps = (typeof projectsData)[number];
 
 export default function Project({
-title,
+  title,
   description,
   tags,
   imageUrl,
   modalTitle,
   modalPoints,
   modalSrc,
-  modalType,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,24 +82,7 @@ title,
         modalSrc={modalSrc}
         modalPoints={modalPoints}
         modalTitle={modalTitle}
-      >
-        {modalType === "video" ? (
-          <video 
-            src={modalSrc} 
-            controls
-            autoPlay
-            muted
-            className="w-full rounded-lg"
-          />
-        ) : (
-          <Image 
-            src={modalSrc} 
-            alt="project preview" 
-            quality={95} 
-            className="rounded-lg"
-          />
-        )}
-      </ProjectModal>
+      />
     </>
   );
 }
