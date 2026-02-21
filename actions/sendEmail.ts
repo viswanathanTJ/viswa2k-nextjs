@@ -17,6 +17,11 @@ export const sendEmail = async (formData: FormData) => {
       error: "Invalid sender email",
     };
   }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(senderEmail)) {
+    return {
+      error: "Invalid email format",
+    };
+  }
   if (!validateString(message, 5000)) {
     return {
       error: "Invalid message",

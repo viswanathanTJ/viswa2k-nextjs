@@ -41,7 +41,7 @@ export default function RootLayout({
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>
-      <script async src="//code.tidio.co/ytyedcgnlikxcich6p1ypzpretyfymzr.js" />
+      <script async src="https://code.tidio.co/ytyedcgnlikxcich6p1ypzpretyfymzr.js" />
       <Analytics />
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

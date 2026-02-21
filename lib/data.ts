@@ -102,7 +102,7 @@ export const experiencesData = [
     title: "Member Technical Staff",
     location: "Zoho Corporation - Chennai",
     description:
-      "Became a full time employee and Zoho Corporation",
+      "Became a full-time employee at Zoho Corporation",
     icon: React.createElement(CgWorkAlt),
     date: "2023 - present",
   }
@@ -189,7 +189,7 @@ export const skillsData = [
   "pandas",
   "numpy",
   "Docker",
-  "Kubernetees",
+  "Kubernetes",
   "Cloud Computing",
   "Django",
   "Java",
