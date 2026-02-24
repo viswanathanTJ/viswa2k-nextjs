@@ -26,26 +26,35 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="mb-28 max-w-[53rem] scroll-mt-28 sm:mb-40"
     >
       <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
-            key={index}
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-            custom={index}
-          >
-            {skill}
-          </motion.li>
+      <div className="w-full space-y-6">
+        {skillsData.map((group) => (
+          <div key={group.category}>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-3">
+              {group.category}
+            </h3>
+            <ul className="flex flex-wrap gap-2 text-gray-800">
+              {group.skills.map((skill, skillIdx) => (
+                <motion.li
+                  key={skillIdx}
+                  className="bg-white borderBlack rounded-xl px-4 py-2 text-sm dark:bg-white/10 dark:text-white/80"
+                  variants={fadeInAnimationVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{
+                    once: true,
+                  }}
+                  custom={skillIdx}
+                >
+                  {skill}
+                </motion.li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
