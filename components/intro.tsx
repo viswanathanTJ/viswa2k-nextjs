@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
-import { HiDownload, HiExternalLink, HiViewBoards } from "react-icons/hi";
+import { HiExternalLink } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
@@ -61,11 +61,12 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Viswanathan.</span> I'm a{" "}
-        <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">3+ years</span> of experience. I enjoy
-        building rock solid <span className="italic">sites & apps</span>. I love to automate daily stuff with{" "}
-        <span className="underline">Python</span>.
+        <span className="font-bold">Hello, I&apos;m Viswanathan.</span> I&apos;m a{" "}
+        <span className="font-bold">Software Engineer</span> with{" "}
+        <span className="font-bold">4+ years</span> of experience. I build
+        backend systems, automate workflows with{" "}
+        <span className="underline">Python & Shell</span>, and ship{" "}
+        <span className="italic">reliable software</span> at scale.
       </motion.h1>
 
       <motion.div
@@ -78,7 +79,7 @@ export default function Intro() {
       >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+          className="group bg-indigo-600 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-indigo-700 active:scale-105 transition"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());

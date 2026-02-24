@@ -11,7 +11,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "@/context/theme-context";
 
 export default function Experience() {
-  const { ref } = useSectionInView("Experience");
+  const { ref } = useSectionInView("Experience", 0.2);
   const { theme } = useTheme();
 
   return (
@@ -23,7 +23,7 @@ export default function Experience() {
               key={index}
               contentStyle={{
                 background:
-                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
+                  theme === "light" ? "#f1f5f9" : "rgba(255, 255, 255, 0.05)",
                 boxShadow: "none",
                 border: "1px solid rgba(0, 0, 0, 0.05)",
                 textAlign: "left",
@@ -32,7 +32,7 @@ export default function Experience() {
               contentArrowStyle={{
                 borderRight:
                   theme === "light"
-                    ? "0.4rem solid #9ca3af"
+                    ? "0.4rem solid #94a3b8"
                     : "0.4rem solid rgba(255, 255, 255, 0.5)",
               }}
               date={item.date}
@@ -45,9 +45,19 @@ export default function Experience() {
             >
               <h3 className="font-semibold capitalize">{item.title}</h3>
               <p className="font-normal !mt-0">{item.location}</p>
-              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
-                {item.description}
-              </p>
+              {Array.isArray(item.description) ? (
+                <ul className="!mt-2 list-disc list-outside pl-4 space-y-1 text-sm text-gray-700 dark:text-white/75">
+                  {(item.description as readonly string[]).map((point, i) => (
+                    <li key={i} className="!font-normal leading-snug">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
+                  {item.description}
+                </p>
+              )}
             </VerticalTimelineElement>
         ))}
       </VerticalTimeline>

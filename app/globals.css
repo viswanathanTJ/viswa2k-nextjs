@@ -4,10 +4,14 @@
 
 html {
   --line-color: #e5e7eb;
+  --blob-right: #c7d2fe;
+  --blob-left: #bae6fd;
 }
 
 html.dark {
   --line-color: rgba(255, 255, 255, 0.2);
+  --blob-right: #3730a3;
+  --blob-left: #0c4a6e;
 }
 
 .borderBlack {

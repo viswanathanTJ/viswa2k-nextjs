@@ -18,24 +18,27 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        A proficient coder with a knack for designing websites and software that are not only functional but also {" "}
-        <span className="font-medium">aesthetically pleasing</span>. With a solid foundation in <span className="font-medium">Linux management and DevOps</span>,{" "}
-        I excel at creating streamlined systems that enhance <span className="font-medium">productivity</span> and <span className="font-medium">efficiency.</span>
+        I am a <span className="font-medium">Software Engineer at Zoho Corporation</span> with
+        over 4 years of experience across the full software lifecycle — from building{" "}
+        <span className="font-medium">backend APIs and CLI automation tools</span> to contributing
+        to large-scale <span className="font-medium">distributed systems</span> and{" "}
+        <span className="font-medium">API gateways</span>.
       </p>
-      
-      <p>
-        My interest extends to the realm of <span className="font-medium">automation</span>, where I utilize my skills in shell scripting and  <span className="font-medium">Python</span> to automate complex tasks,
-        thereby simplifying processes and improving overall performance. This passion for automation, combined with my expertise in coding,{" "}
-        allows me to provide comprehensive digital solutions that meet the highest standards of quality.
-        In essence, I am a coder who believes in the power of technology to transform and simplify, and I strive to reflect this belief in every project I undertake.
+
+      <p className="mb-3">
+        My core strength lies in <span className="font-medium">backend engineering</span> —
+        designing reliable services, automating repetitive infrastructure tasks, and integrating
+        external systems. I work across{" "}
+        <span className="font-medium">Python, Java, and Shell environments</span>, and I am
+        experienced with <span className="font-medium">Docker, Kubernetes, and Google Cloud</span>{" "}
+        for deployment and operations.
       </p>
 
       <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        cricket, badminton, video games and watching movies. I also enjoy{" "}
-        <span className="font-medium">learning new things</span> about technology and stocks. I am currently
-        learning about{" "}
-        <span className="font-medium">web development and social marketing</span>.
+        <span className="italic">Outside of work</span>, I enjoy cricket, badminton, and chess.
+        I am currently exploring{" "}
+        <span className="font-medium">AI agents and LLM tooling</span>, and I follow the
+        intersection of <span className="font-medium">technology and markets</span> closely.
       </p>
     </motion.section>
   );
