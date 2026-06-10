@@ -59,7 +59,7 @@ export const experiencesData: ExperienceEntry[] = [
       "Built a CLI-based server configuration and deployment automation tool in Python and Shell, adopted by the entire Zoho Projects engineering team for setup and releases.",
       "Cut developer cycle time by ~40% by streamlining environment setup, code changes, and testing loops.",
       "Developed backend components for a shared API gateway powering install/uninstall for all Zoho Projects integrations (10+ external systems) — new integrations are config-driven, eliminating ~40% of duplicated integration code.",
-      "Consolidated real-time data synchronisation from 5+ services into a single Kafka + scheduler-based design, cutting cross-service sync latency from minutes to seconds — now the standard pattern for new services.",
+      "Consolidated real-time data synchronisation from 5+ services into one shared design that dispatches Kafka or scheduler payloads based on each module's sync requirement, cutting cross-service sync latency from minutes to seconds — now the standard pattern for new services.",
     ],
     icon: React.createElement(CgWorkAlt),
     date: "06/2023 – Present",

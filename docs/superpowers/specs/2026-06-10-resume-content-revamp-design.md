@@ -83,9 +83,10 @@ Decisions:
    **install/uninstall for all Zoho Projects integrations** (10+ external systems) —
    new integrations are **config-driven**, eliminating **~40% of duplicated
    integration code**.
-4. Consolidated **real-time data synchronization** from **5+ services** into a single
-   **Kafka + scheduler**-based design, cutting cross-service sync latency **from
-   minutes to seconds** — now the standard pattern for new services.
+4. Consolidated **real-time data synchronization** from **5+ services** into one shared
+   design that dispatches **Kafka or scheduler payloads** based on each module's sync
+   requirement, cutting cross-service sync latency **from minutes to seconds** — now
+   the standard pattern for new services.
 
 ### Experience — SDE Intern, Zoho Corporation · 02/2021 – 06/2023
 
