@@ -38,7 +38,7 @@ h1 { font-size: 21pt; font-weight: 800; letter-spacing: -0.4pt; color: var(--ind
 .contact .sep { margin: 0 2.5pt; color: var(--faint); }
 .contact a { color: inherit; text-decoration: none; }
 .contact a, .contact .loc { white-space: nowrap; }
-.ic { width: 8pt; height: 8pt; vertical-align: -1pt; margin-right: 2.5pt; }
+.ic { width: 8pt; height: 8pt; vertical-align: -1pt; margin-right: 2.5pt; overflow: visible; }
 .ic-stroke { fill: none; stroke: var(--indigo); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ic-fill { fill: var(--indigo); }
 
