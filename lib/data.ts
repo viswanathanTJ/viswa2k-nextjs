@@ -190,7 +190,6 @@ export const skillsData = [
       "FastAPI",
       "Flask",
       "Django",
-      "Spring Boot",
       "REST APIs",
       "Microservices",
       "Kafka",

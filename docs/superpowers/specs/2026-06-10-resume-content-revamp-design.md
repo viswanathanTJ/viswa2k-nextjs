@@ -58,7 +58,7 @@ Constraints:
 | Category | Skills |
 |---|---|
 | Programming | Python, Java, JavaScript, TypeScript, Shell Scripting |
-| Backend | FastAPI, Flask, Django, Spring Boot, REST APIs, Microservices, Kafka, SQLAlchemy |
+| Backend | FastAPI, Flask, Django, REST APIs, Microservices, Kafka, SQLAlchemy |
 | Frontend | React, Next.js, HTML, CSS |
 | Databases | PostgreSQL, MySQL, MongoDB, Redis, SQLite, Firebase |
 | Cloud & DevOps | Docker, Kubernetes, Google Cloud, GitHub Actions, CI/CD, Linux |
