@@ -193,26 +193,35 @@ export const projectsData = [
 export const skillsData = [
   {
     category: "Programming",
-    skills: ["Python", "Java", "JavaScript", "Shell Scripting"],
-  },
-  {
-    category: "Frontend",
-    skills: ["HTML", "CSS", "React", "Next.js", "TypeScript"],
+    skills: ["Python", "Java", "JavaScript", "TypeScript", "Shell Scripting"],
   },
   {
     category: "Backend",
-    skills: ["FastAPI", "Flask", "Django", "Spring Boot", "Kafka", "REST APIs", "Microservices"],
+    skills: [
+      "FastAPI",
+      "Flask",
+      "Django",
+      "Spring Boot",
+      "REST APIs",
+      "Microservices",
+      "Kafka",
+      "SQLAlchemy",
+    ],
   },
   {
-    category: "Data & Automation",
-    skills: ["NumPy", "Pandas", "Automation Scripts"],
-  },
-  {
-    category: "Cloud & DevOps",
-    skills: ["Docker", "Kubernetes", "Google Cloud", "GitHub Actions", "Linux", "CI/CD"],
+    category: "Frontend",
+    skills: ["React", "Next.js", "HTML", "CSS"],
   },
   {
     category: "Databases",
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "SQLite", "Firebase"],
+  },
+  {
+    category: "Cloud & DevOps",
+    skills: ["Docker", "Kubernetes", "Google Cloud", "GitHub Actions", "CI/CD", "Linux"],
+  },
+  {
+    category: "Tools & Security",
+    skills: ["Git", "Postman", "JWT", "RBAC", "Cryptography"],
   },
 ] as const;
