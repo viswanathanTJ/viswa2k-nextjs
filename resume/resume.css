@@ -25,7 +25,7 @@ body {
   print-color-adjust: exact;
 }
 
-.page { width: 210mm; height: 297mm; display: flex; flex-direction: column; overflow: hidden; }
+.page { width: 210mm; min-height: 297mm; display: flex; flex-direction: column; }
 
 /* ---------- Header ---------- */
 .page > header {
@@ -36,6 +36,11 @@ h1 { font-size: 21pt; font-weight: 800; letter-spacing: -0.4pt; color: var(--ind
 .role { font-size: 10.5pt; font-weight: 600; color: var(--indigo); margin-top: 1pt; }
 .contact { margin-top: 2.5pt; font-size: 8.2pt; color: var(--muted); }
 .contact .sep { margin: 0 2.5pt; color: var(--faint); }
+.contact a { color: inherit; text-decoration: none; }
+.contact a, .contact .loc { white-space: nowrap; }
+.ic { width: 8pt; height: 8pt; vertical-align: -1pt; margin-right: 2.5pt; }
+.ic-stroke { fill: none; stroke: var(--indigo); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic-fill { fill: var(--indigo); }
 
 /* ---------- Shared elements ---------- */
 h2 {
@@ -93,7 +98,17 @@ strong { font-weight: 700; color: #14161f; }
 .layout-a .rail .dates { font-size: 7.6pt; }
 
 /* ---------- Layout C: hybrid skills band ---------- */
-.layout-c main { flex: 1; padding: 5.5mm 12mm 8mm; }
+.layout-c main { flex: 1; padding: 4mm 12mm 4mm; }
+.layout-c ul.bullets li { margin-bottom: 1.2pt; }
+.layout-c section { margin-bottom: 4pt; }
+.layout-c .entry { margin-bottom: 3.5pt; }
+.layout-c .page { font-size: 8.8pt; line-height: 1.36; }
+.layout-c .page > header { padding: 5mm 12mm 2.5mm; }
+.layout-c .skills-band { padding: 3.5pt 7pt 2pt; }
+.layout-c .skills-band .row { margin-bottom: 0.8pt; }
+.layout-c .footer-cols { gap: 6mm; }
+.layout-c h2 { margin-bottom: 3pt; }
+.layout-c .chip { margin-bottom: 2pt; }
 .layout-c .skills-band { background: var(--rail-bg); border-radius: 4pt; padding: 5pt 7pt 3.5pt; }
 .layout-c .skills-band .row { display: flex; align-items: baseline; margin-bottom: 1.5pt; }
 .layout-c .skills-band .skill-cat { width: 30mm; flex-shrink: 0; margin: 0; }
