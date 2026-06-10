@@ -72,6 +72,10 @@ resume/
 - Outputs `resume/resume-a.pdf` and `resume/resume-c.pdf`; the chosen winner is copied to `public/resume.pdf` so the portfolio download link is unchanged.
 - Print rules: `@page { size: A4; margin: 0 }`, internal padding, sidebar tint bleeds edge-to-edge, strict one-page budget; script warns if output exceeds 1 page.
 
+## Keyword Highlighting
+
+Bullets bold the must-read tokens so a 6-second recruiter skim lands on them: metrics (**~40% faster**, **10+ integrations**, **200+ users**, **30+ production issues**) and core tech/role keywords (**FastAPI**, **PostgreSQL**, **RBAC**, **API gateway**, **microservices**, **Docker**). Bolding uses `<strong>` (plain text styling — fully ATS-safe). At most 2–3 bolded tokens per bullet so emphasis stays meaningful.
+
 ## ATS Safety
 
 - Semantic HTML (`h1`/`h2`/`ul`), real selectable text, no text rendered as images
