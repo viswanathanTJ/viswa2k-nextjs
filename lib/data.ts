@@ -6,6 +6,7 @@ import { MdWorkspacePremium } from "react-icons/md";
 import passwordmanager from "@/public/passwordmanager.png";
 import passwordmanagergui from "@/public/passwordmanagergui.jpeg";
 import marksheetmanager from "@/public/marksheetmanagement.jpeg";
+import academicsuite from "@/public/academicsuite.png";
 
 export const links = [
   {
@@ -55,9 +56,10 @@ export const experiencesData: ExperienceEntry[] = [
     title: "Software Development Engineer",
     location: "Zoho Corporation, Chennai",
     description: [
-      "Built a CLI-based automated tool using Python and Shell that simplified server configuration and deployment, improving team pace by ~40%.",
-      "Developed backend components for a shared API gateway integrating 10+ external systems, standardising CRUD operations and reducing maintenance overhead.",
-      "Implemented real-time data synchronisation across interconnected services, improving data accuracy and reducing manual intervention.",
+      "Built a CLI-based server configuration and deployment automation tool in Python and Shell, simplifying setup and releases for the whole team.",
+      "Cut developer cycle time by ~40% by streamlining environment setup, code changes, and testing loops.",
+      "Developed backend components for a shared API gateway integrating 10+ external systems, standardising CRUD operations and reducing maintenance complexity.",
+      "Implemented real-time data synchronisation across interconnected services, improving data accuracy and eliminating manual intervention.",
     ],
     icon: React.createElement(CgWorkAlt),
     date: "06/2023 – Present",
@@ -66,10 +68,9 @@ export const experiencesData: ExperienceEntry[] = [
     title: "Software Development Engineer — Intern",
     location: "Zoho Corporation, Chennai",
     description: [
-      "Built a full-stack internal project management tool now used by 200+ users, contributing to backend APIs and UI components.",
-      "Reduced integration time by automating repetitive workflow steps, improving data flow across services.",
-      "Identified and resolved 30+ production issues through hands-on debugging with mentor guidance.",
-      "Upgraded legacy modules and improved API handling for better system responsiveness under load.",
+      "Co-built a full-stack project management tool adopted by 200+ internal users, developing backend APIs and UI components.",
+      "Diagnosed and fixed 30+ production issues, strengthening debugging and root-cause analysis skills.",
+      "Automated repetitive integration steps, significantly reducing service integration time.",
     ],
     icon: React.createElement(CgWorkAlt),
     date: "02/2021 – 06/2023",
@@ -109,6 +110,23 @@ export const experiencesData: ExperienceEntry[] = [
 ];
 
 export const projectsData = [
+  {
+    title: "Academic Suite — Exam Controller",
+    description:
+      "Full-stack platform automating marksheet, hall-ticket, and report generation for PG/UG/Diploma programs — staff RBAC portal plus a student self-service portal.",
+    tags: ["FastAPI", "React", "TypeScript", "PostgreSQL", "Redis", "Docker"],
+    imageUrl: academicsuite,
+    modalType: "image",
+    modalTitle: "Academic Suite — Exam Controller",
+    modalPoints: [
+      "Automates marksheet, hall-ticket, and department-report generation for PG, UG, and Diploma programs — pixel-accurate PDFs (A4/Legal/A5) rendered from Jinja2 templates.",
+      "Unified grading engine covering three academic systems with Strategy + Factory patterns, keeping program rules isolated and extensible.",
+      "Two role-aware React frontends served by one FastAPI backend: a staff portal with granular RBAC and time-windowed marks entry, and a student portal with tab-scoped JWT and AES-GCM-encrypted sessions.",
+      "Typed SQLAlchemy 2.0 data layer with a repository pattern on PostgreSQL; Dockerised and self-deployed on a VPS with backups and monitoring.",
+      "The modern successor to the Marksheet Management System after five years of production use.",
+    ],
+    modalSrc: "/academicsuite.png",
+  },
   {
     title: "Password Manager — Web",
     description:
@@ -153,7 +171,7 @@ export const projectsData = [
   {
     title: "Marksheet Management System",
     description:
-      "Automated system that generates marksheets, hall tickets, and department reports from student data. Supports Excel input and direct email delivery.",
+      "Automated system that generates marksheets, hall tickets, and department reports from student data. In production use for 5 years before being rebuilt as Academic Suite.",
     tags: ["Python", "Flask", "pymysql", "pandas", "HTML", "CSS", "JS"],
     imageUrl: marksheetmanager,
     modalSrc: "/mm.mp4",
@@ -166,6 +184,7 @@ export const projectsData = [
       "Automates hall ticket generation for seamless examination processes.",
       "Includes automated features to send marksheets and hall tickets directly to students via email.",
       "Simplifies data handling, improving accuracy and reducing manual effort.",
+      "Served the institution in production for 5 years before being rebuilt as the Academic Suite platform.",
       "This project showcases expertise in automation, report generation, and building efficient academic management systems.",
     ],
   },
@@ -182,7 +201,11 @@ export const skillsData = [
   },
   {
     category: "Backend",
-    skills: ["FastAPI", "Flask", "Django", "Spring Boot", "Kafka", "REST APIs"],
+    skills: ["FastAPI", "Flask", "Django", "Spring Boot", "Kafka", "REST APIs", "Microservices"],
+  },
+  {
+    category: "Data & Automation",
+    skills: ["NumPy", "Pandas", "Automation Scripts"],
   },
   {
     category: "Cloud & DevOps",
@@ -190,6 +213,6 @@ export const skillsData = [
   },
   {
     category: "Databases",
-    skills: ["MySQL", "MongoDB", "Redis"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
   },
 ] as const;

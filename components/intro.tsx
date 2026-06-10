@@ -63,10 +63,11 @@ export default function Intro() {
       >
         <span className="font-bold">Hello, I&apos;m Viswanathan.</span> I&apos;m a{" "}
         <span className="font-bold">Software Engineer</span> with{" "}
-        <span className="font-bold">4+ years</span> of experience. I build
-        backend systems, automate workflows with{" "}
+        <span className="font-bold">3+ years at Zoho</span>. I build backend
+        systems — <span className="font-bold">REST APIs & microservices</span> —
+        automate workflows with{" "}
         <span className="underline">Python & Shell</span>, and ship{" "}
-        <span className="italic">reliable software</span> at scale.
+        <span className="italic">reliable software</span> end to end.
       </motion.h1>
 
       <motion.div
