@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --indigo: #4f46e5;
+  --indigo-deep: #312e81;
+  --ink: #1f2430;
+  --muted: #5b6472;
+  --faint: #8a92a1;
+  --rail-bg: #f4f5fb;
+  --chip-bg: #e0e7ff;
+  --chip-text: #3730a3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+@page { size: A4; margin: 0; }
+
+body {
+  width: 210mm;
+  font-family: 'Inter', -apple-system, 'Segoe UI', Arial, sans-serif;
+  font-size: 9.3pt;
+  line-height: 1.42;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page { width: 210mm; height: 297mm; display: flex; flex-direction: column; overflow: hidden; }
+
+/* ---------- Header ---------- */
+.page > header {
+  padding: 8mm 12mm 4mm;
+  border-bottom: 1.2pt solid var(--indigo);
+}
+h1 { font-size: 21pt; font-weight: 800; letter-spacing: -0.4pt; color: var(--indigo-deep); }
+.role { font-size: 10.5pt; font-weight: 600; color: var(--indigo); margin-top: 1pt; }
+.contact { margin-top: 2.5pt; font-size: 8.2pt; color: var(--muted); }
+.contact .sep { margin: 0 2.5pt; color: var(--faint); }
+
+/* ---------- Shared elements ---------- */
+h2 {
+  font-size: 8.2pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4pt;
+  color: var(--indigo);
+  margin: 0 0 4pt;
+}
+section { margin-bottom: 7pt; }
+
+.entry { margin-bottom: 5.5pt; }
+.entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6pt; }
+.entry-title { font-size: 9.8pt; font-weight: 700; }
+.entry-sub { font-size: 8.6pt; color: var(--muted); font-weight: 500; }
+.dates { font-size: 8pt; color: var(--faint); font-weight: 600; white-space: nowrap; }
+.stack { font-size: 8pt; color: var(--indigo); font-weight: 600; margin-top: 0.5pt; }
+
+ul.bullets { margin: 2.5pt 0 0; padding-left: 10.5pt; }
+ul.bullets li { margin-bottom: 2.2pt; }
+ul.bullets li::marker { color: var(--indigo); }
+strong { font-weight: 700; color: #14161f; }
+
+.summary { color: #2a3140; }
+
+.chip {
+  display: inline-block;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-size: 7.8pt;
+  font-weight: 500;
+  padding: 1pt 5pt;
+  border-radius: 3pt;
+  margin: 0 2pt 2.5pt 0;
+}
+.skill-cat {
+  font-size: 7.6pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6pt;
+  color: var(--muted);
+  margin: 4pt 0 2pt;
+}
+
+/* ---------- Layout A: two-column sidebar ---------- */
+/* DOM order is main-then-rail (ATS reading order); flex `order` puts the rail on the left visually. */
+.layout-a .columns { display: flex; flex: 1; min-height: 0; }
+.layout-a .main { order: 2; flex: 1; padding: 5.5mm 12mm 8mm 7mm; }
+.layout-a .rail { order: 1; width: 62mm; background: var(--rail-bg); padding: 5.5mm 6mm 8mm 12mm; }
+.layout-a .rail section { margin-bottom: 9pt; }
+.layout-a .rail .entry { margin-bottom: 4.5pt; }
+.layout-a .rail .entry-title { font-size: 8.8pt; }
+.layout-a .rail .entry-sub { font-size: 7.9pt; }
+.layout-a .rail .dates { font-size: 7.6pt; }
+
+/* ---------- Layout C: hybrid skills band ---------- */
+.layout-c main { flex: 1; padding: 5.5mm 12mm 8mm; }
+.layout-c .skills-band { background: var(--rail-bg); border-radius: 4pt; padding: 5pt 7pt 3.5pt; }
+.layout-c .skills-band .row { display: flex; align-items: baseline; margin-bottom: 1.5pt; }
+.layout-c .skills-band .skill-cat { width: 30mm; flex-shrink: 0; margin: 0; }
+.layout-c .footer-cols { display: flex; gap: 8mm; }
+.layout-c .footer-cols > section { flex: 1; margin-bottom: 0; }
