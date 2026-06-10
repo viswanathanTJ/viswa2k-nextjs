@@ -18,10 +18,11 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        I am a <span className="font-medium">Software Engineer at Zoho Corporation</span> with
-        over 4 years of experience across the full software lifecycle — from building{" "}
-        <span className="font-medium">backend APIs and CLI automation tools</span> to contributing
-        to large-scale <span className="font-medium">distributed systems</span> and{" "}
+        I am a backend-leaning full-stack{" "}
+        <span className="font-medium">Software Engineer at Zoho Corporation</span> with 3+ years
+        of full-time experience (5+ including my internship) across the full software lifecycle —
+        from building <span className="font-medium">backend APIs and CLI automation tools</span> to
+        contributing to large-scale <span className="font-medium">distributed systems</span> and{" "}
         <span className="font-medium">API gateways</span>.
       </p>
 
@@ -31,7 +32,9 @@ export default function About() {
         external systems. I work across{" "}
         <span className="font-medium">Python, Java, and Shell environments</span>, and I am
         experienced with <span className="font-medium">Docker, Kubernetes, and Google Cloud</span>{" "}
-        for deployment and operations.
+        for deployment and operations. I also build and operate my own production systems end to
+        end — most recently <span className="font-medium">Academic Suite</span>, a self-hosted
+        exam-management platform on FastAPI, React, and PostgreSQL.
       </p>
 
       <p>
