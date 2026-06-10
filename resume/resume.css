@@ -104,9 +104,6 @@ strong { font-weight: 700; color: #14161f; }
 .layout-c .entry { margin-bottom: 3.5pt; }
 .layout-c .page { font-size: 8.8pt; line-height: 1.36; }
 .layout-c .page > header { padding: 5mm 12mm 2.5mm; }
-.layout-c .skills-band { padding: 3.5pt 7pt 2pt; }
-.layout-c .skills-band .row { margin-bottom: 0.8pt; }
-.layout-c .footer-cols { gap: 6mm; }
 .layout-c h2 { margin-bottom: 3pt; }
 .layout-c .chip { margin-bottom: 2pt; }
 .layout-c .skills-band { background: var(--rail-bg); border-radius: 4pt; padding: 5pt 7pt 3.5pt; }
@@ -114,3 +111,4 @@ strong { font-weight: 700; color: #14161f; }
 .layout-c .skills-band .skill-cat { width: 30mm; flex-shrink: 0; margin: 0; }
 .layout-c .footer-cols { display: flex; gap: 8mm; }
 .layout-c .footer-cols > section { flex: 1; margin-bottom: 0; }
+.layout-c .footer-cols > section.langs { flex: 0 0 26mm; }
