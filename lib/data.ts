@@ -50,10 +50,10 @@ export const experiencesData: ExperienceEntry[] = [
     description:
       "Completed an intensive programme on building AI agents, covering agentic frameworks, tool use, and multi-agent orchestration.",
     icon: React.createElement(FaGlasses),
-    date: "2024",
+    date: "2025",
   },
   {
-    title: "Software Development Engineer",
+    title: "Member of Technical Staff",
     location: "Zoho Corporation, Chennai",
     description: [
       "Built a CLI-based server configuration and deployment automation tool in Python and Shell, adopted by the entire Zoho Projects engineering team for setup and releases.",
@@ -65,7 +65,7 @@ export const experiencesData: ExperienceEntry[] = [
     date: "Jun 2023 – Present",
   },
   {
-    title: "Software Development Engineer — Intern",
+    title: "Project Trainee",
     location: "Zoho Corporation, Chennai",
     description: [
       "Independently built a full-stack project management tool — backend APIs and UI — adopted by 200+ internal users.",
@@ -131,6 +131,7 @@ export const projectsData = [
     title: "Password Manager — Web",
     description:
       "Web-based password manager securing credentials with Fernet symmetric encryption. Store everything in one place, accessible from any device.",
+    liveUrl: "https://viswa2k.vercel.app/",
     tags: ["Python", "Flask", "Bootstrap", "SQLite", "MongoDB", "Firebase"],
     imageUrl: passwordmanager,
     modalType: "image",
@@ -167,7 +168,7 @@ export const projectsData = [
       "Flask web app that reads student marks from Excel sheets and generates marksheets, hall tickets, and department copies. Still running in production; later evolved into Academic Suite.",
     tags: ["Python", "Flask", "Bootstrap", "MySQL", "Pandas"],
     imageUrl: marksheetmanager,
-    modalSrc: "/mm.mp4",
+    modalSrc: "/marksheet-demo.mp4",
     modalType: "video",
     modalTitle: "Marksheet Management System",
     modalPoints: [
@@ -176,6 +177,30 @@ export const projectsData = [
       "Delivered as a fully offline, single-machine system per the institution's requirement — a stable build still running in production today.",
       "Later evolved into Academic Suite, a separate web app accessible from anywhere.",
     ],
+  },
+] as const;
+
+export const miniProjectsData = [
+  {
+    title: "Eye2020",
+    description:
+      "Cross-platform desktop app enforcing the 20-20-20 eye-care rule — system-tray reminders, streak tracking, and auto-pause when the screen sleeps.",
+    tags: ["Rust", "Tauri"],
+    link: "https://github.com/viswanathanTJ/EyeCare-20-20-20",
+  },
+  {
+    title: "SyncPad",
+    description:
+      "Offline-first Android notes app with cloud sync — MVVM with Hilt DI, Room + Paging 3, and Supabase-backed synchronisation.",
+    tags: ["Kotlin", "Jetpack Compose", "Supabase"],
+    link: "https://github.com/viswanathanTJ/SyncPad",
+  },
+  {
+    title: "SMS Forwarder",
+    description:
+      "Android app that forwards SMS from one device to another for remote OTP access.",
+    tags: ["Kotlin", "Jetpack Compose"],
+    link: "https://github.com/viswanathanTJ/sms-forwarder",
   },
 ] as const;
 

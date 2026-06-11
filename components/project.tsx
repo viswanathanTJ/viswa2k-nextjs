@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = (typeof projectsData)[number] & { liveUrl?: string };
 
 export default function Project({
   title,
@@ -16,6 +16,7 @@ export default function Project({
   modalTitle,
   modalPoints,
   modalSrc,
+  liveUrl,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,6 +45,17 @@ export default function Project({
             <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
               {description}
             </p>
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="mt-2 w-fit text-sm font-medium text-indigo-600 hover:underline dark:text-indigo-300"
+              >
+                Live: {new URL(liveUrl).host} ↗
+              </a>
+            )}
             <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
               {tags.map((tag, index) => (
                 <li
