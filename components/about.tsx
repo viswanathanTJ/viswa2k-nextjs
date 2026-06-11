@@ -19,7 +19,7 @@ export default function About() {
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
         I am a <span className="font-medium">Software Engineer at Zoho Corporation</span> with 3+
-        years of full-time experience (5+ including my internship) across the full software
+        years of full-time experience (nearly 4 including my internship) across the full software
         lifecycle — from <span className="font-medium">backend APIs and CLI automation tools</span>{" "}
         to large-scale <span className="font-medium">distributed systems</span> and{" "}
         <span className="font-medium">API gateways</span>.

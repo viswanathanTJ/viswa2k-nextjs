@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Renders resume-*.html to PDF via headless Chrome and verifies one-page budget + text layer.
-# Also builds resume-c-web.pdf — the public website copy with the phone number removed.
-# Release version (with phone) = resume-c.pdf; website version (no phone) = resume-c-web.pdf.
+# Renders resume.html to PDF via headless Chrome and verifies one-page budget + text layer.
+# Also builds resume-web.pdf — the public website copy with the phone number removed.
+# Release version (with phone) = resume.pdf; website version (no phone) = resume-web.pdf.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -45,21 +45,17 @@ sys.exit(0 if ok else 1)
 EOF
 }
 
-for v in a c; do
-  src="resume-$v.html"
-  [ -f "$src" ] || { echo "skip: $src (not found)"; continue; }
-  render "$src" "resume-$v.pdf"
-  verify "resume-$v.pdf" with-phone
-done
+render "resume.html" "resume.pdf"
+verify "resume.pdf" with-phone
 
-# Website copy: layout C with the tel: link (and its separator) stripped.
+# Website copy: resume.html with the tel: link (and its separator) stripped.
 uv run --quiet python - <<'EOF'
 import re
-html = open('resume-c.html').read()
+html = open('resume.html').read()
 out, n = re.subn(r'\s*<a href="tel:[^"]*">.*?</a>\s*<span class="sep">·</span>', '', html, count=1, flags=re.S)
-assert n == 1, "phone anchor not found in resume-c.html"
-open('resume-c-web.html', 'w').write(out)
+assert n == 1, "phone anchor not found in resume.html"
+open('resume-web.html', 'w').write(out)
 EOF
-render "resume-c-web.html" "resume-c-web.pdf"
-verify "resume-c-web.pdf" no-phone
-rm -f resume-c-web.html
+render "resume-web.html" "resume-web.pdf"
+verify "resume-web.pdf" no-phone
+rm -f resume-web.html

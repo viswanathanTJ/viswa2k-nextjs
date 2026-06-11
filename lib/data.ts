@@ -62,7 +62,7 @@ export const experiencesData: ExperienceEntry[] = [
       "Consolidated real-time data synchronisation from 5+ services into one shared design that dispatches Kafka or scheduler payloads based on each module's sync requirement, cutting cross-service sync latency from minutes to seconds — now the standard pattern for new services.",
     ],
     icon: React.createElement(CgWorkAlt),
-    date: "06/2023 – Present",
+    date: "Jun 2023 – Present",
   },
   {
     title: "Software Development Engineer — Intern",
@@ -73,7 +73,7 @@ export const experiencesData: ExperienceEntry[] = [
       "Drove the team's Eclipse → IntelliJ migration by reimplementing slow IDE-plugin workflows as Python/Shell scripts with fully automated configuration.",
     ],
     icon: React.createElement(CgWorkAlt),
-    date: "02/2021 – 06/2023",
+    date: "Aug 2022 – Jun 2023",
   },
   {
     title: "MCA — Master of Computer Applications",
@@ -81,7 +81,7 @@ export const experiencesData: ExperienceEntry[] = [
     description:
       "Completed postgraduate degree in Computer Applications, developing full-stack projects across Python, Flask, and web technologies.",
     icon: React.createElement(LuGraduationCap),
-    date: "10/2021 – 04/2023",
+    date: "Oct 2021 – Apr 2023",
   },
   {
     title: "Hackathon — State Level Participation",
@@ -105,7 +105,7 @@ export const experiencesData: ExperienceEntry[] = [
     description:
       "Graduated with a Bachelor of Science in Computer Science. Built foundational programming skills and participated in web development with the college team.",
     icon: React.createElement(LuGraduationCap),
-    date: "04/2018 – 05/2021",
+    date: "Apr 2018 – May 2021",
   },
 ];
 
