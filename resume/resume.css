@@ -87,11 +87,13 @@ strong { font-weight: 700; color: #14161f; }
 }
 
 /* ---------- Layout C: hybrid skills band ---------- */
-.layout-c main { flex: 1; padding: 2mm 12mm 0.5mm; }
-.layout-c ul.bullets li { margin-bottom: 0.5pt; }
-.layout-c section { margin-bottom: 3.5pt; }
-.layout-c .entry { margin-bottom: 2.5pt; }
-.layout-c .page { font-size: 8.7pt; line-height: 1.24; }
+.layout-c main { flex: 1; padding: 2.5mm 12mm 0.5mm; }
+.layout-c ul.bullets { margin-top: 2pt; }
+.layout-c ul.bullets li { margin-bottom: 1pt; }
+.layout-c section { margin-bottom: 4.5pt; }
+.layout-c .entry { margin-bottom: 3.5pt; }
+.layout-c .stack { margin-top: 1pt; }
+.layout-c .page { font-size: 8.7pt; line-height: 1.26; }
 .layout-c .skills-band .row { margin-bottom: 0; }
 .layout-c .page > header { padding: 2.8mm 12mm 1.8mm; }
 .layout-c .contact { font-size: 7.8pt; }
